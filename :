@@ -1,0 +1,38 @@
+require "sinatra"
+require "./calendar"
+
+set :environment, :production
+
+get '/' do
+	@msg = "This page is TestPage of WebCal."
+end
+
+get '/:y' do
+	@msg = "Year is #{params[:y]}"
+end
+
+get '/:y/:m' do
+	y = "#{params[:y]}".to_i
+	m = "#{params[:m]}".to_i
+	d = "#{params[:d]}".to_i
+	#@msg = "Youbi is #{Youbi(y, m, d)}"
+	@msg = calendar(y, m);
+end
+
+get '/:y/:m/' do
+	y = "#{params[:y]}".to_i
+	m = "#{params[:m]}".to_i
+	d = "#{params[:d]}".to_i
+	#@msg = "Youbi is #{Youbi(y, m, d)}"
+	@msg = calendar(y, m);
+end
+
+
+get '/:y/:m/:d' do
+	y = "#{params[:y]}".to_i
+	m = "#{params[:m]}".to_i
+	d = "#{params[:d]}".to_i
+	#@msg = "Youbi is #{Youbi(y, m, d)}"
+	@msg = calendar(y, m);
+end
+
